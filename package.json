@@ -2,7 +2,7 @@
   "name": "github_viewer_task",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://vanderwooodsen.github.com/Github-Organization-Viewer/",
+  "homepage": "https://christis.page/Github-Organization-Viewer",
   "dependencies": {
     "@craco/craco": "^6.1.2",
     "@heroicons/react": "^1.0.1",
@@ -28,7 +28,7 @@
     "test": "craco test",
     "eject": "react-scripts eject",
     "predeploy": "craco build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build -b deploy"
   },
   "eslintConfig": {
     "extends": "react-app"
