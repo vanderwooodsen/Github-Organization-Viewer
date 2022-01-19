@@ -8,7 +8,7 @@ const initialState = {
   organization: null,
   accessToken: "",
   currentRepository: "",
-  commitsPage: 0,
+  commitsPage: 1,
   loading: false,
   loadingError: null
 };
@@ -44,7 +44,7 @@ export const setCurrentRepository = createAsyncThunk(
 
     return {
       commits: await loadCommits(octokit, organization, repository, 0),
-      repository: repository
+      repository: repository,
     }
 });
 
@@ -86,8 +86,10 @@ export const loadNextCommits = createAsyncThunk(
     const currentRepository = state.githubViewer.currentRepository;
     const commitsPage = state.githubViewer.commitsPage;
 
+    const nextCommits = await loadCommits(octokit, organization, currentRepository, commitsPage + 1);
+    const commits = state.githubViewer.commits.concat(nextCommits);
     return {
-      nextCommits: await loadCommits(octokit, organization, currentRepository, commitsPage + 1),
+      commits: commits,
       page: commitsPage + 1
     }
 });
@@ -132,7 +134,7 @@ export const githubViewerSlice = createSlice({
       state.organization = action.payload.orgData;
       state.currentRepository = action.payload.repository;
       state.commits = action.payload.commits;
-      state.commitsPage = 0;
+      state.commitsPage = 1;
       state.loading = false;
       state.loadingError = null;
     },
@@ -140,13 +142,13 @@ export const githubViewerSlice = createSlice({
     [setCurrentRepository.fulfilled] : (state, action) => {
       state.commits = action.payload.commits;
       state.currentRepository = action.payload.repository;
-      state.commitsPage = 0;
+      state.commitsPage = 1;
       state.loading = false;
       state.loadingError = null;
     },
 
     [loadNextCommits.fulfilled] : (state, action) => {
-      state.commits = state.commits.concat(action.payload.nextCommits);
+      state.commits = action.payload.commits;
       state.commitsPage = action.payload.page;
       state.loading = false;
       state.loadingError = null;

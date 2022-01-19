@@ -9,21 +9,21 @@ export function Commits() {
 
   if (commits === null) {
     return (
-      <div className="p-10 min-h-full text-blue-700">Select a repostitory</div>
+      <div className="p-10 min-h-full text-gray-800">Select a repostitory</div>
     );
   }
 
   return (
     <div>
-      <div className="my-3 mr-3 bg-gray-700 rounded-2xl border-top-1 border-blue-300">
+      <div  className=" my-3 mr-3 bg-gray-700 rounded-2xl border-top-1">
         <h2 className="text-2xl p-5 pb-2 text-blue-200">Commits</h2>
-        <div className="bg-yellow-100">
+        <div className="bg-white">
           {commits.map((commit) => <Commit  key={commit.sha} commit={commit}/>)}
         </div>
       </div>
         <div className="text-center">
-ß      <button
-        className="px-4 rounded-lg bg-gray-800  text-white font-bold p-4 uppercase border-gray-900 border"
+      <button
+        className="px-4 rounded-lg button text-white font-bold p-4 uppercase  border"
         onClick={() => {
           dispatch(loadNextCommits());
         }}

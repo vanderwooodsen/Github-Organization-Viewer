@@ -10,7 +10,7 @@ export function Commit(props) {
   }
 
   return (
-    <div className="bg-gray-700 py-3 px-3 border-blue-300 border-2 mb-1">
+    <div className="bg-gray-700 py-3 px-3 border-blue-200 border-2 mb-1">
       <div className="text-l tracking-wide	line-clamp-2">
         {title}
       </div>

@@ -1,3 +1,41 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+#commits:hover{
+  border-color: #f4d35e;
+
+}
+
+.repo_name{
+  color:#023047 ;
+}
+
+#token_body{
+  background-color: #8ecae6;
+}
+
+.button{
+  background-color:#023047;
+}
+
+.button:hover{
+  background-color: #023047 ;
+}
+
+.repo_list{
+  background-color: #d88f08;
+}
+
+.repo_list_bg{
+  background-color: #eeb230
+}
+
+
+.icon{
+  color: #0e667c;
+}
+.icon:hover{
+  color: #0c4d5e;
+}

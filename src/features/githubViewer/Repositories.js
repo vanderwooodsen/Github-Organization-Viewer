@@ -6,7 +6,7 @@ export function Repositories() {
   const repositories = useSelector(selectRepositories);
 
   return (
-    <div className="rounded-xl border-blue-300 bg-green-700 m-3 shadow-lg drop-shadow">
+    <div className="rounded-xl  repo_list_bg m-3 shadow-lg drop-shadow">
       <h2 className="text-2xl m-5 mb-2 font-bold">Repositories</h2>
       <div className="divide-red-200 divide-y">
         {repositories.map((repo) => (

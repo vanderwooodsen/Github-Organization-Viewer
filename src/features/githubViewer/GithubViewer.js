@@ -33,11 +33,11 @@ export function GithubViewer() {
 
       {loadingError !== null && <LoadingError/>}
 
-      <div className="bg-blue-400  py-1 px-4 flex justify-between items-center">
+      <div id="token_body" className="py-1 px-4 flex justify-between items-center text-gray-500">
         <span className="p-2">
           Github allows only 60 unauthenticated requests per hour per IP. <br/> If you see errors
           {" "}
-          <a href="https://github.com/settings/tokens/new" className="underline text-blue-900">create</a>
+          <a href="https://github.com/settings/tokens/new" className="underline text-gray-700">create</a>
           {" "}
           and enter your
           Github API token.
@@ -53,20 +53,20 @@ export function GithubViewer() {
             }}
           >
             <input
-              className="rounded-l-lg p-2 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-yellow-50"
+              className="rounded-l-lg p-2 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"
               placeholder="Github Access Token"
               value={tokenInput}
               onChange={(event) => setTokenInput(event.target.value)}
             />
-            <button className="rounded-r-lg bg-gray-800  text-white font-bold p-1 px-4 uppercase border-gray-900 border-t border-b border-r">
+            <button className="button rounded-r-lg   text-white font-bold p-1 px-4 uppercase  border-t border-b border-r">
               Update
             </button>
           </form>
         </span>
       </div>
 
-      <div className="bg-yellow-400  p-5 flex justify-between">
-        <span className="pl-4 font-semibold text-5xl border-gray-200 text-yellow-50">
+      <div  className="bg-white  p-5 flex justify-between">
+        <span  className="repo_name pl-4 font-semibold text-5xl">
           {organization?.name}
         </span>
 
@@ -79,19 +79,19 @@ export function GithubViewer() {
             }}
           >
             <input
-              className="rounded-l-lg p-2 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-yellow-50"
+              className="rounded-l-lg p-2 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"
               placeholder="Organization"
               value={orgInput}
               onChange={(event) => setOrgInput(event.target.value)}
             />
-            <button className="px-4 rounded-r-lg bg-gray-800  text-white font-bold p-4 uppercase border-gray-900 border-t border-b border-r">
+            <button className="button px-4 rounded-r-lg   text-white font-bold p-4 uppercase  border-t border-b border-r">
               GO
             </button>
           </form>
         </span>
       </div>
 
-      <div className="grid grid-cols-2 bg-yellow-100 gap-0.5">
+      <div className="grid grid-cols-2 bg-white gap-0.5">
         <Repositories />
         <Commits />
       </div>
